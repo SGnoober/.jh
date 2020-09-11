@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
-const welcomeChannelName = "안녕하세요";
-const byeChannelName = "안녕히가세요";
-const welcomeChannelComment = "어서오세요.";
-const byeChannelComment = "안녕히가세요.";
+const welcomeChannelName = "new-users";
+const byeChannelName = "out-users";
+const welcomeChannelComment = "누가왔네요.";
+const byeChannelComment = "누가갔네요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'SG | Surviv.io 개발' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'SG | NNS 개발' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -18,7 +18,7 @@ client.on("guildMemberAdd", (member) => {
 
   welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
 
-  member.addRole(guild.roles.find(role => role.name == "게스트"));
+  member.addRole(guild.roles.find(role => role.name == "SG | Member"));
 });
 
 client.on("guildMemberRemove", (member) => {
