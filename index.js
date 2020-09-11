@@ -8,7 +8,7 @@ const byeChannelComment = "누가갔네요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'SG | NNS 개발' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'SG | NNS 개발(하기 귀찮다)' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -32,8 +32,8 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == '') {
-    return message.reply('pong');
+  if(message.content == '작동중?') {
+    return message.reply('ㅇㅇ 작동중');
   }
 
   if(message.content.startsWith('!청소')) {
@@ -76,7 +76,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "명령어를 수행할 관리자 권한을 소지하고 있지않습니다.")
+    message.channel.send(`<@${message.author.id}> ` + "권한없어서 청소 못해 ㅅㄱ")
     return true;
   } else {
     return false;
