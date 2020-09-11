@@ -36,10 +36,10 @@ client.on('message', (message) => {
     return message.reply('ㅇㅇ 작동중');
   }
 
-  if(message.content.startsWith('!청소')) {
+  if(message.content.startsWith('!정리')) {
     if(checkPermission(message)) return
 
-    var clearLine = message.content.slice('!청소 '.length);
+    var clearLine = message.content.slice('!정리 '.length);
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
