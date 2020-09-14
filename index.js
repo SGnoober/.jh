@@ -37,7 +37,7 @@ client.on('message', (message) => {
   }
   
   if(message.content == '도움말좀') {
-    return message.reply('없음');
+    return message.reply('꺼져');
   }
 
   if(message.content.startsWith('!정리')) {
