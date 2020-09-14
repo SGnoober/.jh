@@ -8,7 +8,7 @@ const byeChannelComment = "누가갔네요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: 'SG | NNS 개발(하기 귀찮다)' }, status: 'online' })
+  client.user.setPresence({ game: { name: '개발할거 추천좀' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -34,6 +34,10 @@ client.on('message', (message) => {
 
   if(message.content == '작동중?') {
     return message.reply('ㅇㅇ 작동중');
+  }
+  
+  if(message.content == '도움말좀') {
+    return message.reply('없음');
   }
 
   if(message.content.startsWith('!정리')) {
@@ -67,7 +71,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개 메세지들을 정리했어요 (조금이따가 사라짐)");
         })
         .catch(console.error)
     }
@@ -76,7 +80,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "권한없어서 청소 못해 ㅅㄱ")
+    message.channel.send(`<@${message.author.id}> ` + "권한없어서 정리 못해")
     return true;
   } else {
     return false;
