@@ -85,7 +85,7 @@ client.on('message', (message) => {
         .catch(console.error)
     }
   }
-});
+}});
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
