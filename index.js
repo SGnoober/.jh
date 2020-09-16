@@ -35,18 +35,18 @@ client.on('message', (message) => {
   if(message.content == '작동중?') {
     return message.reply('ㅇㅇ 작동중');
   }
-    if(message.content == '$도움말') {
+    if(message.content == '도움말') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '$도움말', desc: '도움말'},
-      {name: '$ping', desc: '현재 핑 상태'},
-      {name: '$정리', desc: '텍스트 지움'},
-      {name: '$초대코드', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
+      {name: '도움말', desc: '도움말'},
+      {name: 'ping', desc: '현재 핑 상태'},
+      {name: '정리', desc: '텍스트 지움'},
+      {name: '초대코드', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
     ];
-  if(message.content.startsWith('$정리')) {
+  if(message.content.startsWith('정리')) {
     if(checkPermission(message)) return
 
-    var clearLine = message.content.slice('$정리 '.length);
+    var clearLine = message.content.slice('정리 '.length);
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
