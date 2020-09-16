@@ -8,7 +8,7 @@ const byeChannelComment = "누가갔네요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '이제 틀 잡혔다..' }, status: 'online' })
+  client.user.setPresence({ game: { name: '기본명령어 = $, $도움말을 입력해보세요!' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -37,7 +37,7 @@ client.on('message', (message) => {
   }
   
   if(message.content == '도움말좀') {
-    return message.reply('꺼져');
+    return message.reply({name: '$도움말', desc: '도움말'}, );
   }
 
   if(message.content.startsWith('$정리')) {
@@ -71,7 +71,7 @@ client.on('message', (message) => {
     } else {
       message.channel.bulkDelete(parseInt(clearLine)+1)
         .then(() => {
-          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개 메세지들을 정리했어요 (조금이따가 사라짐)");
+          AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개 메세지들을 정리했어요. (조금이따가 사라짐)");
         })
         .catch(console.error)
     }
@@ -80,7 +80,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "권한없어서 정리 못해")
+    message.channel.send(`<@${message.author.id}> ` + "너 권한이 없잖아")
     return true;
   } else {
     return false;
