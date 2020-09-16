@@ -37,9 +37,21 @@ client.on('message', (message) => {
   }
   
   if(message.content == '도움말좀') {
-    return message.reply({name: '$도움말', desc: '도움말'}, );
+    return message.reply();
   }
 
+  let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('Help of', helpImg)
+      .setColor('#186de6')
+      .setFooter(`BOT`)
+      .setTimestamp()
+    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
+    embed.addField('Commands: ', commandStr);
   if(message.content.startsWith('$정리')) {
     if(checkPermission(message)) return
 
