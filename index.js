@@ -40,10 +40,10 @@ client.on('message', (message) => {
     return message.reply('꺼져');
   }
 
-  if(message.content.startsWith('!정리')) {
+  if(message.content.startsWith('$정리')) {
     if(checkPermission(message)) return
 
-    var clearLine = message.content.slice('!정리 '.length);
+    var clearLine = message.content.slice('$정리 '.length);
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
