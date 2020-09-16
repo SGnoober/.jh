@@ -8,7 +8,7 @@ const byeChannelComment = "누가갔네요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '개발할거 추천좀' }, status: 'online' })
+  client.user.setPresence({ game: { name: '$도움말을 입력해보세요!' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -36,10 +36,19 @@ client.on('message', (message) => {
     return message.reply('ㅇㅇ 작동중');
   }
   
-  if(message.content == '도움말좀') {
-    return message.reply('꺼져');
+  if(message.content == '$도움말') {
+    return message.reply('도움말');
   }
 
+  else if(message.content == '!help') {
+    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
+    let commandList = [
+      {name: '!help', desc: 'help'},
+      {name: 'ping', desc: '현재 핑 상태'},
+      {name: '!청소', desc: '텍스트 지움'},
+      {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
+      {name: '!초대코드2', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
+    ];
   if(message.content.startsWith('!정리')) {
     if(checkPermission(message)) return
 
@@ -80,7 +89,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "권한없어서 정리 못해")
+    message.channel.send(`<@${message.author.id}> ` + "권한없잖아")
     return true;
   } else {
     return false;
