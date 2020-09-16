@@ -35,9 +35,7 @@ client.on('message', (message) => {
   if(message.content == '작동중?') {
     return message.reply('ㅇㅇ 작동중');
   }
-  
-
-  else if(message.content == '$도움말') {
+    if(message.content == '$도움말') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
       {name: '$도움말', desc: '도움말'},
