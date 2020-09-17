@@ -40,18 +40,7 @@ client.on('message', (message) => {
     return message.reply('기다리세요');
   }
 
-  let commandStr = '';
-    let embed = new Discord.RichEmbed()
-      .setAuthor('Help of', helpImg)
-      .setColor('#186de6')
-      .setFooter(`BOT`)
-      .setTimestamp()
-    
-    commandList.forEach(x => {
-      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-    });
 
-    embed.addField('Commands: ', commandStr);
   if(message.content.startsWith('$정리')) {
     if(checkPermission(message)) return
 
