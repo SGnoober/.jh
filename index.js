@@ -37,7 +37,7 @@ client.on('message', (message) => {
   }
   
   if(message.content == '$도움말') {
-    return message.reply('기본 명령어는 $으로 작동합니다.\n배지우 바보');
+    return message.reply('기본 명령어는 $으로 작동합니다.\n너가 쓸 수 있는 명령어\n$도움말 : 이게 도움말이다\n$정리 : 1부터 100사이의 메세지를 정리하는거임(관리자 권한 있어야 돌아간다)');
   }
 
 
