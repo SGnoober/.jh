@@ -37,7 +37,7 @@ client.on('message', (message) => {
   }
   
   if(message.content == '$도움말') {
-    return message.reply('기다리세요');
+    return message.reply('기본 명령어는 $으로 작동합니다.\n배지우 바보');
   }
 
 
