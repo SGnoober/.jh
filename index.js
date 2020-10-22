@@ -3,8 +3,8 @@ const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
 const welcomeChannelName = "new-users";
 const byeChannelName = "out-users";
-const welcomeChannelComment = "누가왔네요.";
-const byeChannelComment = "누가갔네요.";
+const welcomeChannelComment = "안녕!";
+const byeChannelComment = "잘가..";
 
 client.on('ready', () => {
   console.log('켰다.');
@@ -37,9 +37,11 @@ client.on('message', (message) => {
   }
   
   if(message.content == '$도움말') {
-    return message.reply('``**기본 명령어는 $으로 작동합니다.\n너가 쓸 수 있는 명령어\n$도움말 : 이게 도움말이다\n$정리 : 1부터 100사이의 메세지를 정리하는거임\n(관리자 권한 있어야 돌아간다)\n추가예정**``');
+    return message.reply(embed = discord.Embed(title = '타이틀', description = '도움말테스트\n1. 테스트중', color = discord.Color.white())
+    ,await message.channel.send(embed=embed))
   }
-
+embed = discord.Embed(title = '타이틀', description = '도움말테스트\n1. 테스트중', color = discord.Color.white())
+await message.channel.send(embed=embed)
 
   if(message.content.startsWith('$정리')) {
     if(checkPermission(message)) return
