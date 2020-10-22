@@ -37,11 +37,11 @@ client.on('message', (message) => {
   }
   
   if(message.content == '$도움말') {
-    return message.reply(embed = discord.Embed(title = '타이틀', description = '도움말테스트\n1. 테스트중', color = discord.Color.white())
-    ,await message.channel.send(embed=embed))
+    return message.reply('``기본 명령어는 $으로 작동합니다.\n너가 쓸 수 있는 명령어\n$도움말 : 이게 도움말이다\n$정리 : 1부터 100사이의 메세지를 정리하는거임\n(관리자 권한 있어야 돌아간다)\n추가예정``');
   }
-embed = discord.Embed(title = '타이틀', description = '도움말테스트\n1. 테스트중', color = discord.Color.white())
-await message.channel.send(embed=embed)
+
+
+
 
   if(message.content.startsWith('$정리')) {
     if(checkPermission(message)) return
@@ -52,7 +52,7 @@ await message.channel.send(embed=embed)
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
       message.channel.send("1부터 100까지밖에 안된다고!")
       return;
-    } else if(!isNum) { // c @나긋해 3
+    } else if(!isNum) {
       if(message.content.split('<@').length == 2) {
         if(isNaN(message.content.split(' ')[2])) return;
 
