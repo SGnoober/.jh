@@ -41,7 +41,7 @@ client.on('message', (message) => {
   }
 
 
-  if(message.content == '$임베드') {
+  if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://media.discordapp.net/attachments/768733776528277546/768735048445853706/4f79006a624a3d38.png';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -69,7 +69,7 @@ client.on('message', (message) => {
     embed.addField('list:',        `${list}`);
 
     embed.setTimestamp()
-    message.channel.send(embed);
+    await message.channel.send(embed=embed);
   }
 
   if(message.content.startsWith('$정리')) {
@@ -79,7 +79,7 @@ client.on('message', (message) => {
     var isNum = !isNaN(clearLine)
 
     if(isNum && (clearLine <= 0 || 100 < clearLine)) {
-      message.channel.send("1부터 100까지밖에 안된다고!")
+      message.channel.send("1부터 100까지밖에 안된다고요!")
       return;
     } else if(!isNum) {
       if(message.content.split('<@').length == 2) {
