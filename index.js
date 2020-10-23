@@ -41,36 +41,6 @@ client.on('message', (message) => {
   }
 
 
-  if(message.content == '!si') {
-    let embed = new Discord.RichEmbed()
-    let img = 'https://media.discordapp.net/attachments/768733776528277546/768735048445853706/4f79006a624a3d38.png';
-    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#b8faf7')
-    embed.setAuthor('가나다', img)
-    embed.setFooter(`가나다라`)
-    embed.addBlankField('가')
-    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('running time', `${duration}`, true);
-    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
-    
-    let arr = client.guilds.array();
-    let list = '';
-    list = `\`\`\`css\n`;
-    
-    for(let i=0;i<arr.length;i++) {
-      // list += `${arr[i].name} - ${arr[i].id}\n`
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
-
-    embed.setTimestamp()
-    await message.channel.send(embed=embed);
-  }
 
   if(message.content.startsWith('$정리')) {
     if(checkPermission(message)) return
