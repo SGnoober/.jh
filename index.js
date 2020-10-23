@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const token = process.argv.length == 2 ? process.env.token : "";
-const welcomeChannelName = "new-users";
+const welcomeChannelName = "〔:wave:〕입퇴장-로그";
 const byeChannelName = "out-users";
-const welcomeChannelComment = "안녕!";
-const byeChannelComment = "잘가..";
+const welcomeChannelComment = "안녕하세요!";
+const byeChannelComment = "잘가세요";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '$도움말을 해봐' }, status: 'online' })
+  client.user.setPresence({ game: { name: '$도움말을 하시면 더 많은 정보를 보실 수 있습니다!' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
